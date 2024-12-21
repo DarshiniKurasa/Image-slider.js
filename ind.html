@@ -10,7 +10,8 @@
 
 <body>
     <div class="gallery-wrap">
-        <img src="images/back.png" alt="Back Button" class="btn back-btn">
+        <!-- Add the proper id for the buttons -->
+        <img src="images/back.png" alt="Back Button" id="backBtn" class="btn back-btn">
         <div class="gallery">
             <div>
                 <span><img src="images/image-1.png" alt="Image 1"></span>
@@ -23,8 +24,39 @@
                 <span><img src="images/image-6.png" alt="Image 6"></span>
             </div>
         </div>
-        <img src="images/next.png" alt="Next Button" class="btn next-btn">
+        <img src="images/next.png" alt="Next Button" id="frontBtn" class="btn next-btn">
     </div>
+
+    <script>
+        // Select elements properly
+        let scrollCont = document.querySelector(".gallery");
+        let backBtn = document.getElementById("backBtn");
+        let nextBtn = document.getElementById("frontBtn");
+
+        // Ensure elements exist before adding listeners
+        if (scrollCont && backBtn && nextBtn) {
+            // Add horizontal scroll with mouse wheel
+            scrollCont.addEventListener("wheel", (evt) => {
+                scrollCont.style.scrollBehaviour = "auto";
+                // evt.preventDefault();
+                scrollCont.scrollLeft += evt.deltaY;
+            }, { passive: false }); // Explicitly set as non-passive
+
+            // Scroll forward when next button is clicked
+            nextBtn.addEventListener("click", () => {
+                scrollCont.style.scrollBehaviour="smooth";
+                scrollCont.scrollLeft += 900;
+            });
+
+            // Scroll backward when back button is clicked
+            backBtn.addEventListener("click", () => {
+                scrollCont.style.scrollBehaviour = "smooth";
+                scrollCont.scrollLeft -= 900;
+            });
+        } else {
+            console.error("One or more elements (gallery, backBtn, frontBtn) are missing in the DOM.");
+        }
+    </script>
 </body>
 
 </html>
