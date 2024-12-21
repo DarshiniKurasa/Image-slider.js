@@ -12,16 +12,6 @@ This project is a responsive image gallery featuring smooth horizontal scrolling
 
 ---
 
-## Demo
-
-### **Desktop View**
-![Gallery Demo](demo-desktop.png)
-
-### **Mobile View**
-![Gallery Demo](demo-mobile.png)
-
----
-
 ## Technologies Used
 
 - **HTML5**: Semantic markup for structuring the gallery and navigation elements.
